@@ -2,11 +2,10 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown.js');
-generateMarkdown.rL
 
 const questions = [
-    inquirer
-  .prompt([
+  inquirer
+    .prompt([
     {
       type: 'input',
       message: 'What is the title of your project?',
@@ -40,7 +39,7 @@ const questions = [
     {
     type: 'list',
     message: 'Which liscense are you using?',
-    choices: ['Apche', 'CCO', 'MIT', 'GNU', 'None'],
+    choices: ['Apache', 'CCO', 'MIT', 'GNU', 'None'],
     name: 'license',
     },
     {
@@ -55,9 +54,10 @@ const questions = [
     },  
   ])  
   .then(response => {
-    const userResponse = JSON.stringify(response, null, 2);
+    const userResponse = generateMarkdown(response);
+    console.log(userResponse)
     fs.writeFile('README.md', userResponse, (error) =>
-    error ? consdole.error (error) : console.log(response)
+    error ? console.error (error) : console.log('Success')
     )
   }
 )];
