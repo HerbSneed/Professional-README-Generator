@@ -1,16 +1,16 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generateMarkdown = require('./generateMarkdown.js');
+const generateMarkdown = require('./utils/generateMarkdown.js');
+generateMarkdown.rL
 
-// TODO: Create an array of questions for user input
 const questions = [
     inquirer
   .prompt([
     {
       type: 'input',
       message: 'What is the title of your project?',
-      name: 'project-title',
+      name: 'project',
     },
     {
       type: 'input',
@@ -38,31 +38,29 @@ const questions = [
     name: 'test',
     },
     {
-      type: 'list',
-      message: 'Which liscense are you using?',
-      choices: ['Apche 2.0', 'MIT', 'GNU'],
-      name: 'License',
+    type: 'list',
+    message: 'Which liscense are you using?',
+    choices: ['Apche', 'CCO', 'MIT', 'GNU', 'None'],
+    name: 'license',
     },
     {
     type: 'input',
     message: 'Enter you GitHub username.',
-    name: 'Questions',
+    name: 'github',
     },
     {
     type: 'input',
-    message: 'What is your email address?.',
-    name: 'Questions',
+    message: 'What is your email address?',
+    name: 'email',
     },  
   ])  
   .then(response => {
-    const userResponse = JSON.stringify(response);
-    console.log(JSON.stringify(userResponse))
-    fs.writeFile('README.md', `${userResponse}`, (error) =>
+    const userResponse = JSON.stringify(response, null, 2);
+    fs.writeFile('README.md', userResponse, (error) =>
     error ? consdole.error (error) : console.log(response)
     )
   }
 )];
-
 
 
 // // TODO: Create a function to initialize app
