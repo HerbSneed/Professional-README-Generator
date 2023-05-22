@@ -1,11 +1,8 @@
-// TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generateMarkdown = require('./utils/generateMarkdown.js');
+const generateMarkdown = require('./Develop/generateMarkdown.js').generateMarkdown;
 
 const questions = [
-  inquirer
-    .prompt([
     {
       type: 'input',
       message: 'What is the title of your project?',
@@ -39,7 +36,7 @@ const questions = [
     {
     type: 'list',
     message: 'Which liscense are you using?',
-    choices: ['Apache', 'CCO', 'MIT', 'GNU', 'None'],
+    choices: ['Apache 2.0', 'CCO', 'MIT', 'GNU 3.0', 'None'],
     name: 'license',
     },
     {
@@ -52,19 +49,20 @@ const questions = [
     message: 'What is your email address?',
     name: 'email',
     },  
-  ])  
-  .then(response => {
-    const userResponse = generateMarkdown(response);
-    console.log(userResponse)
-    fs.writeFile('README.md', userResponse, (error) =>
-    error ? console.error (error) : console.log('Success')
-    )
-  }
-)];
+  ]
 
+function init() {
+  inquirer.prompt(questions)
+  .then((response) => {
+  const userResponse = generateMarkdown(response);
+  fs.writeFile('README.md', userResponse, (error) => {
+    if (error) {
+      console.error(error);
+    } else {
+      console.log('Success!');
+    }
+  });
+});
+};
 
-// // TODO: Create a function to initialize app
-// function init() {}
-
-// // Function call to initialize app
-// init();
+init();
