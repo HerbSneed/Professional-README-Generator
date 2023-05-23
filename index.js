@@ -2,6 +2,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const generateMarkdown = require('./Develop/generateMarkdown.js').generateMarkdown;
 
+// Object Array with questions of the user 
 const questions = [
     {
       type: 'input',
@@ -15,7 +16,7 @@ const questions = [
     },
     {
       type: 'input',
-      message: 'What are the installation instrutions?',
+      message: 'What are the installation instructions?',
       name: 'installation',
     },
     {
@@ -35,7 +36,7 @@ const questions = [
     },
     {
     type: 'list',
-    message: 'Which liscense are you using?',
+    message: 'Which license are you using?',
     choices: ['Apache 2.0', 'CCO', 'MIT', 'GNU 3.0', 'None'],
     name: 'license',
     },
@@ -51,6 +52,7 @@ const questions = [
     },  
   ]
 
+// Function that initializes the application
 function init() {
   inquirer.prompt(questions)
   .then((response) => {
@@ -65,4 +67,5 @@ function init() {
 });
 };
 
+// Call the function init
 init();

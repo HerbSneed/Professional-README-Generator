@@ -1,25 +1,25 @@
-[![License: CC0-1.0](https://licensebuttons.net/l/zero/1.0/80x15.png)](http://creativecommons.org/publicdomain/zero/1.0/)
-# Herb's World
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+# City Snap
 ## Description
-All about Herb
+### A web app that allows users to gather information about cities of their interest
 ## Table of Contents
-### • Installation
-### • Usage Information
-### • Contribution Guidelines
-### • Test Instructions
-### • License
-### • Questions  
+### • [Installation](#installation)
+### • [Usage Information](#usage-information)
+### • [Contribution Guidelines](#contribution-guidelines)
+### • [Test Instructions](#test-instructions)
+### • [License](#license)
+### • [Questions](#questions)    
 ## Installation
-run node index.js init in the command line
+### o use web app type the url into the address bar
 ## Usage Information
-Follow Herb
+### The app will allow users to gather information about cities of their interest
 ## Contribution Guidelines 
-For the github repository
+### To contribute to the project fork the repository and add any issues, once complete initiate a PR
 ## Test Instructions
-run text
+### run the test script
 ## License
-The application is cover under CCO  
-undefined
-## Questions
-https://github.com/Herb Sneed
-Feel free to email me at hmsneed@gmail.com
+### MIT  
+### https://choosealicense.com/licenses/mit/
+## Questions  
+### https://github.com/herbsneed  
+### hmsneed@gmail.com

@@ -1,3 +1,5 @@
+
+// Function that returns the license badge based on the users choice
 const renderLicenseBadge = (license) => {
   if (license === 'None') {
     return 'This repository is unlicensed';
@@ -12,48 +14,50 @@ const renderLicenseBadge = (license) => {
   }
 };
 
+// Function that returns the link to the choosen license
 function renderLicenseLink(license) {
   if (license === 'None') {
     return 'This repository is unlicensed';
   } else if (license === 'Apache 2.0') {
-    return 'https://api.github.com/licenses/apache-2.0';
-  } else if (license === 'CC0') {
-    return 'https://api.github.com/licenses/cc0-1.0';
+    return 'https://choosealicense.com/licenses/apache-2.0/';
+  } else if (license === 'CCO') {
+    return 'https://choosealicense.com/licenses/cc0-1.0/';
   } else if (license === 'MIT') {
-    return 'https://api.github.com/licenses/mit';
+    return 'https://choosealicense.com/licenses/mit/';
   } else if (license === 'GNU 3.0') {
-    return 'https://api.github.com/licenses/gpl-3.0';
+    return 'https://choosealicense.com/licenses/gpl-3.0/';
   }
 }
 
+// Function that generates the README
 const generateMarkdown = ({ project, description, installation, usage, contributing, test, license, github, email}) =>
 `${renderLicenseBadge(license)}
 # ${project}
 ## Description
-${description}
+### ${description}
 ## Table of Contents
-### • Installation
-### • Usage Information
-### • Contribution Guidelines
-### • Test Instructions
-### • License
-### • Questions
-  
+### • [Installation](#installation)
+### • [Usage Information](#usage-information)
+### • [Contribution Guidelines](#contribution-guidelines)
+### • [Test Instructions](#test-instructions)
+### • [License](#license)
+### • [Questions](#questions)    
 ## Installation
-${installation}
+### ${installation}
 ## Usage Information
-${usage}
+### ${usage}
 ## Contribution Guidelines 
-${contributing}
+### ${contributing}
 ## Test Instructions
-${test}
+### ${test}
 ## License
-The application is cover under ${license}  
-${renderLicenseLink(license)}
-## Questions
-https://github.com/${github}
-Feel free to email me at ${email}`;
+### ${license}  
+### ${renderLicenseLink(license)}
+## Questions  
+### https://github.com/${github}  
+### ${email}`;
 
+// Export generateMarkdown to the index.js
 module.exports = {
   generateMarkdown,
 }
